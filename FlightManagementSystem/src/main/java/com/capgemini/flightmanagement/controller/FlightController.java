@@ -58,14 +58,6 @@ public class FlightController {
 		flightservice.deleteFlight(flightId);
 	}
 	
-//	
-//	@DeleteMapping("/deleteFlight/{flightId}")
-//	public ResponseEntity<Object> deleteFlight(@PathVariable("flightId") BigInteger flightId)
-//	{
-//		flightservice.deleteFlight(flightId);
-//		return new ResponseEntity<>("Flight deleted Successfully", HttpStatus.OK);
-//	}
-	
 	
 	@PostMapping("/updateFlightDetails")
 	public ResponseEntity<Flight> updateFlight(@RequestBody Flight flight){
@@ -73,12 +65,6 @@ public class FlightController {
 		return ResponseEntity.ok().body(flightdetails);
 	}
 	
-//	@PutMapping ("/updateFlight/{flightId}")
-//	public ResponseEntity<Object> updateFlight(@PathVariable("flightId") BigInteger flightId,@RequestBody Flight flight)
-//	{
-////		if(flight.getSeatCapacity()>200)throw new FlightException("Seating Capacity should not exceeds 200");
-//	    flightservice.updateFlight(flight);
-//	    return new ResponseEntity<>("Flight Updated SuccessFully", HttpStatus.OK);
-//	}
+
 
 }

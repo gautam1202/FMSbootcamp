@@ -19,8 +19,6 @@ public class Flight {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@NotNull(message="flight Id cannot be null")
-	@Column(name = "flight_id", length = 10)
 	private BigInteger flightId;
 	
 	@NotNull(message="carrier name cannot be null")
@@ -38,9 +36,6 @@ public class Flight {
 	@Column(name = "seat_capacity", length = 30)
 	private int seatCapacity;
 	
-//	  @OneToMany(cascade = CascadeType.ALL, mappedBy="flight")
-//	  private List<ScheduledFlight> scheduledFlightList = new ArrayList<>();
-
 	
 	public Flight() {
 	}
@@ -54,62 +49,38 @@ public class Flight {
 		this.seatCapacity = seatCapacity;
 	}
 
-	/**
-	 * @return the flightNo
-	 */
+
 	public BigInteger getFlightId() {
 		return flightId;
 	}
 
-	/**
-	 * @param flightNo
-	 *            the flightNo to set
-	 */
 	public void setFlightId(BigInteger flightId) {
 		this.flightId = flightId;
 	}
 
-	/**
-	 * @return the carrierName
-	 */
+
 	public String getCarrierName() {
 		return carrierName;
 	}
 
-	/**
-	 * @param carrierName
-	 *            the carrierName to set
-	 */
+	
 	public void setCarrierName(String carrierName) {
 		this.carrierName = carrierName;
 	}
 
-	/**
-	 * @return the flightModel
-	 */
+
 	public String getFlightModel() {
 		return flightModel;
 	}
 
-	/**
-	 * @param flightModel
-	 *            the flightModel to set
-	 */
 	public void setFlightModel(String flightModel) {
 		this.flightModel = flightModel;
 	}
 
-	/**
-	 * @return the seatCapacity
-	 */
 	public int getSeatCapacity() {
 		return seatCapacity;
 	}
 
-	/**
-	 * @param seatCapacity
-	 *            the seatCapacity to set
-	 */
 	public void setSeatCapacity(int seatCapacity) {
 		this.seatCapacity = seatCapacity;
 	}

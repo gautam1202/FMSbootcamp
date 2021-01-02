@@ -33,9 +33,8 @@ public class FlightServiceImpl implements IFlightService{
 		@Override
 		public Flight addFlightDetails(Flight flight) 
 		{
-//			Optional<Flight> flightdetails = flightDao.findById(flight);
-			 flightDao.save(flight);
-			 return flight;
+			flightDao.save(flight);
+			return flight;
 		}
 
 		@Override
