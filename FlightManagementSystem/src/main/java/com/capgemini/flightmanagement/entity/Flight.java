@@ -36,10 +36,6 @@ public class Flight {
 	@Size(min=4,max=14,message="carrier name must be between 4 and 14 characters")
 	@Column(name = "flight_manufacturer", length = 30)
 	private String flightManufacturer;
-//	
-//	@Value("#{'${flight.flightManufacturer}'.split(',')}")
-//	private List<String> flightManufacturer;
-
 	
 	
 	@NotNull(message="flight model cannot be null")
@@ -56,12 +52,6 @@ public class Flight {
 	public Flight() {
 	}
 	
-	
-	
-	
-	
-	
-
 
 	public Flight(BigInteger flightId,String flightManufacturer, String carrierName, String flightModel, int seatCapacity) {
 		super();

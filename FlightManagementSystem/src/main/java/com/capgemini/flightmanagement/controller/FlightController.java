@@ -25,7 +25,7 @@ import com.capgemini.flightmanagement.exception.FlightDetailsAlreadyPresentExcep
 import com.capgemini.flightmanagement.exception.FlightDetailsNotFoundException;
 import com.capgemini.flightmanagement.service.IFlightService;
 
-@CrossOrigin(origins="http://localhost:1080")
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 @Validated
 public class FlightController {
@@ -42,6 +42,22 @@ public class FlightController {
 		
 	}
 	
+	@DeleteMapping("/deleteFlight/{flightId}")
+	@ExceptionHandler(FlightDetailsNotFoundException.class)
+	public void deleteFlight(@PathVariable BigInteger flightId) 
+	{
+		flightservice.deleteFlight(flightId);
+	}
+	
+	
+	@PutMapping("/updateFlight/{flightId}")
+	@ExceptionHandler(FlightDetailsNotFoundException.class)
+	public ResponseEntity<Flight> updateFlight(@PathVariable BigInteger flightId,@RequestBody Flight flight)
+	{
+		Flight flightdetails = flightservice.updateFlight(flight);
+		return ResponseEntity.ok().body(flightdetails);
+	}
+	
 	@GetMapping("/getAllFlight")
 	public ResponseEntity<List<Flight>> getAllFlightDetails()
 	{
@@ -49,7 +65,7 @@ public class FlightController {
 		return ResponseEntity.ok().body(list);
 	}
 	
-	@GetMapping("/viewFlight/{flightId}")
+	@GetMapping("/searchFlight/{flightId}")
 	@ExceptionHandler(FlightDetailsNotFoundException.class)
 	public ResponseEntity<Object> viewFlight(@PathVariable("flightId") BigInteger flightId)
 	{
@@ -58,19 +74,7 @@ public class FlightController {
 	}
 	
 	
-	@DeleteMapping("/deleteFlightDetails/{flightId}")
-	@ExceptionHandler(FlightDetailsNotFoundException.class)
-	public void deleteFlight(@PathVariable BigInteger flightId) {
-		flightservice.deleteFlight(flightId);
-	}
 	
-	
-	@PutMapping("/updateFlightDetails/{flightId}")
-	@ExceptionHandler(FlightDetailsNotFoundException.class)
-	public ResponseEntity<Flight> updateFlight(@PathVariable BigInteger flightId,@RequestBody Flight flight){
-		Flight flightdetails = flightservice.updateFlight(flight);
-		return ResponseEntity.ok().body(flightdetails);
-	}
 	
 
 
